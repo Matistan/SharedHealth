@@ -19,8 +19,8 @@ public final class Main extends JavaPlugin {
         System.out.println("*********************************************************\n" +
                 "Thank you for using this plugin! <3\n" +
                 "Author: Matistan\n" +
-//                "If you enjoy this plugin, please rate it on spigotmc.org:\n" +
-//                "https://www.spigotmc.org/resources/shared-inventory.109491/\n" +
+                "If you enjoy this plugin, please rate it on spigotmc.org:\n" +
+                "https://www.spigotmc.org/resources/shared-health.116438/\n" +
                 "*********************************************************");
     }
 
