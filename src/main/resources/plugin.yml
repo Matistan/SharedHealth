@@ -1,0 +1,19 @@
+name: SharedHealth
+version: '${project.version}'
+main: me.matistan.sharedhealth.Main
+api-version: '1.16'
+authors: [Matistan]
+description: With this plugin, every player shares the health bar!
+commands:
+  sharedhealth:
+    description: this command sets up the whole game
+permissions:
+  sharedhealth.sharedhealth:
+    description: Allows the player to use all /sharedhealth commands
+    children:
+      sharedhealth.add: true
+      sharedhealth.remove: true
+      sharedhealth.start: true
+      sharedhealth.stop: true
+      sharedhealth.list: true
+      sharedhealth.help: true
