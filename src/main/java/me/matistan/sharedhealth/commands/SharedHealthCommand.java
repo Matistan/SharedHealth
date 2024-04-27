@@ -43,7 +43,9 @@ public class SharedHealthCommand implements CommandExecutor {
             p.sendMessage(ChatColor.GREEN + "------- " + ChatColor.WHITE + " Minecraft Shared Health " + ChatColor.GREEN + "----------");
             p.sendMessage(ChatColor.BLUE + "Here is a list of shared health commands:");
             p.sendMessage(ChatColor.YELLOW + "/sharedhealth add <player> <player> ... " + ChatColor.AQUA + "- adds players to the game");
+            p.sendMessage(ChatColor.YELLOW + "/sharedhealth add @a " + ChatColor.AQUA + "- adds all players");
             p.sendMessage(ChatColor.YELLOW + "/sharedhealth remove <player> <player> ... " + ChatColor.AQUA + "- removes  players from the game");
+            p.sendMessage(ChatColor.YELLOW + "/sharedhealth remove @a " + ChatColor.AQUA + "- removes  all players");
             p.sendMessage(ChatColor.YELLOW + "/sharedhealth start " + ChatColor.AQUA + "- starts the shared health game");
             p.sendMessage(ChatColor.YELLOW + "/sharedhealth stop " + ChatColor.AQUA + "- stops the game");
             p.sendMessage(ChatColor.YELLOW + "/sharedhealth list " + ChatColor.AQUA + "- shows a list of players in shared health game");
