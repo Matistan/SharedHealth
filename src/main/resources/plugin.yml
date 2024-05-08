@@ -16,4 +16,5 @@ permissions:
       sharedhealth.start: true
       sharedhealth.stop: true
       sharedhealth.list: true
+      sharedhealth.rules: true
       sharedhealth.help: true

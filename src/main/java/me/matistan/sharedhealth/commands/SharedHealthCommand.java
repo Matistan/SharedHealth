@@ -49,8 +49,35 @@ public class SharedHealthCommand implements CommandExecutor {
             p.sendMessage(ChatColor.YELLOW + "/sharedhealth start " + ChatColor.AQUA + "- starts the shared health game");
             p.sendMessage(ChatColor.YELLOW + "/sharedhealth stop " + ChatColor.AQUA + "- stops the game");
             p.sendMessage(ChatColor.YELLOW + "/sharedhealth list " + ChatColor.AQUA + "- shows a list of players in shared health game");
+            p.sendMessage(ChatColor.YELLOW + "/sharedhealth rules <rule> value(optional) " + ChatColor.AQUA + "- changes some additional rules of the game (in config.yml)");
             p.sendMessage(ChatColor.YELLOW + "/sharedhealth help " + ChatColor.AQUA + "- shows a list of shared health commands");
             p.sendMessage(ChatColor.GREEN + "----------------------------------");
+            return true;
+        }
+        if (args[0].equals("rules")) {
+            if (!p.hasPermission("sharedhealth.rules") && main.getConfig().getBoolean("usePermissions")) {
+                p.sendMessage(ChatColor.RED + "You don't have permission to use this command.");
+                return true;
+            }
+            if (args.length != 3 && args.length != 2) {
+                p.sendMessage(ChatColor.RED + "Wrong usage of this command. For help, type: /sharedhealth help");
+                return true;
+            }
+            if (!main.getConfig().contains(args[1])) {
+                p.sendMessage(ChatColor.RED + "There is no such rule. See the config.yml file for more information.");
+                return true;
+            }
+            if (args.length == 2) {
+                p.sendMessage(ChatColor.AQUA + "The value of the rule " + args[1] + " is: " + main.getConfig().get(args[1]));
+                return true;
+            }
+            if (!args[2].equals("true") && !args[2].equals("false")) {
+                p.sendMessage(ChatColor.RED + "The value must be true or false!");
+                return true;
+            }
+            main.getConfig().set(args[1], Boolean.parseBoolean(args[2]));
+            main.saveConfig();
+            p.sendMessage(ChatColor.AQUA + "The value of the rule " + args[1] + " has been changed to: " + args[2]);
             return true;
         }
         if (args[0].equals("list")) {

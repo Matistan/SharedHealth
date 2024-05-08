@@ -36,6 +36,7 @@ With this plugin, everyone shares the health bar. If you die, everyone dies!
 - `/sharedhealth start` - starts the game
 - `/sharedhealth reset` - resets the game
 - `/sharedhealth list` - shows a list of players in the game of shared health
+- `/sharedhealth rules <rule> value(optional)` - changes some additional rules of the game (in config.yml)
 - `/sharedhealth help` - shows a list of shared health commands
 
 ## Configuration Options
@@ -62,6 +63,7 @@ If `usePermissions` is set to `true` in the `config.yml` file, players without o
 | sharedhealth.start        | Allows the player to use the `/sharedhealth start` command.  |
 | sharedhealth.reset        | Allows the player to use the `/sharedhealth reset` command.  |
 | sharedhealth.list         | Allows the player to use the `/sharedhealth list` command.   |
+| sharedhealth.rules        | Allows the player to use the `/sharedhealth rules` command.  |
 | sharedhealth.help         | Allows the player to use the `/sharedhealth help` command.   |
 
 ### Bugs & Issues

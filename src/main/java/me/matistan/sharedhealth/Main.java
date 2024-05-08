@@ -13,7 +13,7 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         getServer().getPluginCommand("sharedhealth").setExecutor(new SharedHealthCommand(this));
-        getCommand("sharedhealth").setTabCompleter(new SharedHealthCompleter());
+        getCommand("sharedhealth").setTabCompleter(new SharedHealthCompleter(this));
         Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
         Bukkit.getPluginManager().registerEvents(new RespawnListener(), this);
         System.out.println("*********************************************************\n" +
