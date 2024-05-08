@@ -25,7 +25,7 @@ With this plugin, everyone shares the health bar. If you die, everyone dies!
 
 - drag the .jar file from the [Release tab](https://github.com/Matistan/SharedHealth/releases) to your plugins folder on your server.
 - type `/sharedhealth start` to start the game of shared health, and stop it using `/sharedhealth stop`
-- if you don't want to play with every player on the server, choose the players using `/sharedhealth add` command
+- if you don't want to play with every player on the server, change the rule `playWithEveryone` to false, and choose the players using `/sharedhealth add` command
 
 ## Commands
 
