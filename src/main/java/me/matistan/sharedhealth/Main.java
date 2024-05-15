@@ -16,6 +16,7 @@ public final class Main extends JavaPlugin {
         getCommand("sharedhealth").setTabCompleter(new SharedHealthCompleter(this));
         Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
         Bukkit.getPluginManager().registerEvents(new RespawnListener(), this);
+        new Metrics(this, 21887);
         System.out.println("*********************************************************\n" +
                 "Thank you for using this plugin! <3\n" +
                 "Author: Matistan\n" +
