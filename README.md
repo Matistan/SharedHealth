@@ -43,13 +43,13 @@ With this plugin, everyone shares the health bar. If you die, everyone dies!
 
 Edit the `plugins/SharedHealth/config.yml` file to change the following options:
 
-| Key                 | Description                                                                                                 | Type    | recommended                                                   |
-|---------------------|-------------------------------------------------------------------------------------------------------------|---------|---------------------------------------------------------------|
-| timeSetDayOnStart   | Set to true to set the time to day automatically when the game starts.                                      | boolean | true                                                          |
-| weatherClearOnStart | Set to true to set the weather to clear automatically when the game starts.                                 | boolean | true                                                          |
-| playWithEveryone    | Set to true to not have to use '/sharedhealth add' every time, and instead play with every player on server | boolean | true                                                          |
-| takeAwayOps         | Set to true to take away OPs for the duration of the game.                                                  | boolean | true                                                          |
-| usePermissions      | Set to true to require users to have permission to use certain commands.                                    | boolean | false; true if you don't trust the people you're playing with |
+| Key                 | Description                                                                                                 | Type    | recommended                                          |
+|---------------------|-------------------------------------------------------------------------------------------------------------|---------|------------------------------------------------------|
+| timeSetDayOnStart   | Set to true to set the time to day automatically when the game starts.                                      | boolean | true                                                 |
+| weatherClearOnStart | Set to true to set the weather to clear automatically when the game starts.                                 | boolean | true                                                 |
+| playWithEveryone    | Set to true to not have to use '/sharedhealth add' every time, and instead play with every player on server | boolean | true                                                 |
+| takeAwayOps         | Set to true to take away OPs for the duration of the game.                                                  | boolean | true                                                 |
+| usePermissions      | Set to true to require users to have permission to use certain commands.                                    | boolean | true; false if you trust players you're playing with |
 
 ## Permissions
 
