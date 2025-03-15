@@ -17,7 +17,7 @@ public class SharedHealthCommand implements CommandExecutor {
     public static boolean inGame = false;
     public static List<String> players = new LinkedList<>();
     public static double health;
-    double absorption;
+    public static double absorption;
     public static List<Boolean> ops = new LinkedList<>();
     private static Main main;
 
@@ -117,10 +117,6 @@ public class SharedHealthCommand implements CommandExecutor {
                 p.sendMessage(ChatColor.RED + "You can't add players to the game because you are playing with everyone!");
                 return true;
             }
-            if (inGame) {
-                p.sendMessage(ChatColor.RED + "The game has already started!");
-                return true;
-            }
             int count = 0;
             if (args[1].equals("@a")) {
                 if (args.length != 2) {
@@ -130,6 +126,7 @@ public class SharedHealthCommand implements CommandExecutor {
                 for (Player target : Bukkit.getOnlinePlayers()) {
                     if (players.contains(target.getName())) continue;
                     players.add(target.getName());
+                    setUpPlayer(target, true);
                     count++;
                 }
                 if (count > 0) {
@@ -143,6 +140,7 @@ public class SharedHealthCommand implements CommandExecutor {
                 Player target = Bukkit.getPlayerExact(args[i]);
                 if (target == null || players.contains(target.getName())) continue;
                 players.add(target.getName());
+                setUpPlayer(target, true);
                 count++;
             }
             if (count > 0) {
@@ -249,19 +247,9 @@ public class SharedHealthCommand implements CommandExecutor {
             if (main.getConfig().getBoolean("weatherClearOnStart")) {
                 p.getServer().getWorlds().get(0).setStorm(false);
             }
-            for (int i = 0; i < players.size(); i++) {
-                String t = players.get(i);
-                Player player = Bukkit.getPlayerExact(t);
-                if (player == null) continue;
-                if (main.getConfig().getBoolean("takeAwayOps")) {
-                    ops.add(player.isOp());
-                    player.setOp(false);
-                }
-                player.setGameMode(GameMode.SURVIVAL);
-                player.setHealth(20);
-                player.setAbsorptionAmount(0);
-                player.setFoodLevel(20);
-                player.setSaturation(5);
+            for (String name : players) {
+                Player player = Bukkit.getPlayerExact(name);
+                setUpPlayer(player, false);
             }
             inGame = true;
             playersMessage(ChatColor.AQUA + "START!");
@@ -286,6 +274,7 @@ public class SharedHealthCommand implements CommandExecutor {
                             }
                             health = player.getHealth();
                             absorption = player.getAbsorptionAmount();
+                            break;
                         }
                     }
                 }
@@ -327,5 +316,24 @@ public class SharedHealthCommand implements CommandExecutor {
             if (player == null) continue;
             player.sendMessage(s);
         }
+    }
+
+    public static void setUpPlayer(Player player, boolean setSharedHealth) {
+        if (player == null) return;
+        if (setSharedHealth) {
+            player.setHealth(health);
+            player.setAbsorptionAmount(absorption);
+        } else {
+            player.setHealth(20);
+            player.setAbsorptionAmount(0);
+        }
+        if (main.getConfig().getBoolean("takeAwayOps")) {
+            ops.add(player.isOp());
+            player.setOp(false);
+        }
+        player.setGameMode(GameMode.SURVIVAL);
+        player.setHealth(20);
+        player.setFoodLevel(20);
+        player.setSaturation(5);
     }
 }

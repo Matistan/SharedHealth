@@ -7,6 +7,8 @@ import me.matistan.sharedhealth.listeners.RespawnListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import static me.matistan.sharedhealth.commands.SharedHealthCommand.reset;
+
 public final class Main extends JavaPlugin {
 
     @Override
@@ -27,6 +29,6 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        SharedHealthCommand.reset();
+        reset();
     }
 }
